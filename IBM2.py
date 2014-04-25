@@ -9,7 +9,8 @@ from array import array
 """Code for the IBM Model 2 Machine Translation System"""
 
 class Q():
-  """A simple class to handle q functionalities"""
+  """A simple class to handle "q"
+  parameter functionalities"""
   def __init__(self):
     self.q = {}
 
@@ -55,16 +56,13 @@ def runEM (t,dewords=IBM1.dewords,enwords=IBM1.enwords):
         #denom = 0
         d = array('d')
         for j in range(0,l+1):
-          #denom += q.get(j,i,l,m) * t [e[j]] [f[i]]
           d.append(q.get(j,i,l,m)*t[e[j]][f[i]])
         #print d
         denom = sum(d)
         #print 'denom',d,denom
         for j in range(0,l+1):
-          #num = q.get(j,i,l,m) * t[e[j]][f[i]]
-          #delta = num / denom
           delta = d[j]/denom
-          #print 'delta',delta
+          #print 'delta', delta
           c[ (e[j], f[i]) ] += delta
           c[ e[j] ] += delta
           c[ (j,i,l,m) ]+= delta
@@ -75,7 +73,7 @@ def runEM (t,dewords=IBM1.dewords,enwords=IBM1.enwords):
         try:
           t[en][fr]= c[(en, fr)]/c[en]
         except:
-          print 'exception'
+          print 'exception occurred'
           pass
 
     #print q.size()
@@ -104,10 +102,8 @@ def sentence_align(ger,eng,tf2e,q):
         try:
           temp = log(tf2e[ger[i]][eng[j]] * q.get(j,i+1,l,m))
           #temp = log(tf2e[ger[i]][eng[j]] * q[(j,i+1,l,m)])
-        
         except:
           temp = -1000000
-
         if temp > maxval:
           maxval = temp
           argmax = j
@@ -127,36 +123,6 @@ def alignment2 (tf,q):
     if count==20:
       return
     a, maxval = sentence_align(ger,eng,tf2e,q)
-
-    """
-    engstr = eng
-    eng = ['_NULL_']+ eng.split()
-    gerstr = ger
-    ger = ger.split()
-    len_a = len(ger)
-    a = [None]*len_a
-    count+=1
-    if count ==21:
-      return
-    l = len(eng)-1
-    m = len(ger)
-    #Transformation, replaced old 'index' with i, and old 'i' with 'j'
-    for i in range(len (ger)):
-      maxval =0
-      argmax = None
-      for j in range(len(eng)):
-        try:
-          temp = tf2e[ger[i]][eng[j]] * q.get(j,i+1,l,m)
-          #print ger[index], eng[i], tf2e[ger[index]][eng[i]]
-          if temp > maxval:
-            maxval = temp
-            argmax = j
-        except:
-          print ger[i], eng[j], '\n'
-        #a[index] = max([ (tf2e[ger[index]] [eng[i]] ,i)  for i in range(len(eng))])[1]
-      a[i] = argmax
-      """
-    print eng, ger, a
     count+=1
 
 def main():
@@ -167,6 +133,5 @@ def main():
   alignment2(t,q)
 
   
-
 if __name__ == '__main__':
   main()
