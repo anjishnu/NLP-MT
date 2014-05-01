@@ -2,10 +2,10 @@ alignment_sample_model1.txt, alignment_sample_model1.txt - Sample alignment outp
 
 sample_t_model1.txt, Sample output for top 10 translations.
 
-devwords.txt - English words list for q4 and q5.
+devwords.txt - English words list.
 
-corpus.en.gz, corpus.de.gz - Corpus for q4 - q6.
+corpus.en.gz, corpus.de.gz - German and English corpus for training.
 
-original.de, original.en, scrambled.en - Data for q6.
+original.de, original.en, scrambled.en - German and English corpora, along with Scrambled dataset for the deduplication task.
 
-eval_scramble.py - Evaluation for q6
+eval_scramble.py - Evaluation Function for Dataset
