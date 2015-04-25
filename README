@@ -1,16 +1,16 @@
-alignment_sample_model1.txt, alignment_sample_model1.txt - Sample alignment output.
+<b>alignment_sample_model1.txt, alignment_sample_model1.txt </b>- Sample alignment output.
 
-sample_t_model1.txt, Sample output for top 10 translations.
+<b>sample_t_model1.txt</b>, Sample output for top 10 translations.
 
-devwords.txt - English words list.
+<b>devwords.txt</b> - English words list.
 
-corpus.en.gz, corpus.de.gz - German and English corpus for training.
+<b>corpus.en.gz, corpus.de.gz</b> - German and English corpus for training.
 
-original.de, original.en, scrambled.en - German and English corpora, along with Scrambled dataset for the deduplication task.
+<b>original.de, original.en, scrambled.en</b> - German and English corpora, along with Scrambled dataset for the deduplication task.
 
-eval_scramble.py - Evaluation Function for Dataset
+<b>eval_scramble.py</b> - Evaluation Function for Dataset
 
-IBM1.py, IBM2.py - Implementations of IBM Model 1 and IBM Model 2 Machine Translation Models. 
+<b>IBM1.py, IBM2.py</b> - Implementations of IBM Model 1 and IBM Model 2 Machine Translation Models. 
 
 Q4_alignments.py	  Generate alignments output for problem 4 
 Q4_devwords.py	    Generate output for problem 4
